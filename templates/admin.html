@@ -1,0 +1,43 @@
+<h2>Painel Admin</h2>
+
+<form method="POST">
+
+    <input name="nome" placeholder="Nome do produto"><br><br>
+
+    <input name="categoria" placeholder="Categoria"><br><br>
+
+    <input name="subcategoria" placeholder="Subcategoria"><br><br>
+
+    <input name="preco" placeholder="Preço"><br><br>
+
+    <input name="imagem" placeholder="URL da imagem"><br><br>
+
+    <input name="descricao" placeholder="Descrição"><br><br>
+
+    <input name="link" placeholder="Link"><br><br>
+
+    <button type="submit">Salvar Produto</button>
+
+</form>
+
+<hr>
+
+<h3>Produtos cadastrados</h3>
+
+{% for p in produtos %}
+<div style="border:1px solid #ccc; padding:10px; margin:10px;">
+
+    <p><b>{{ p.nome }}</b></p>
+    <p>{{ p.categoria }} / {{ p.subcategoria }}</p>
+    <p>R$ {{ p.preco }}</p>
+
+    {% if p.imagem %}
+        <img src="{{ p.imagem }}" width="100">
+    {% endif %}
+
+    <br><br>
+
+    <a href="/deletar/{{ p.id }}">🗑 Deletar</a>
+
+</div>
+{% endfor %}

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Loja de Ofertas Afiliadas</title>
+
+    <meta name="description" content="Ofertas selecionadas de produtos com links de afiliados.">
+    <meta name="robots" content="index, follow">
+
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        /* TOPO MELHORADO */
+        .topo {
+            background: linear-gradient(135deg, #ff5722, #ff784e);
+            color: white;
+            padding: 20px 15px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+
+        .logo {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+        }
+
+        .topo h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .topo p {
+            margin: 5px 0 0;
+            font-size: 13px;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .busca {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .busca input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+
+        .busca button {
+            padding: 12px 20px;
+            background: #ff5722;
+            color: white;
+            border: 0;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        h2 { margin: 35px 0 15px; }
+        h3 { margin: 25px 0 12px; color: #555; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+            gap: 16px;
+        }
+
+        /* CARD MELHORADO */
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            min-height: 320px;
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+        }
+
+        .card img {
+            width: 100%;
+            height: 170px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .nome {
+            font-size: 14px;
+            margin: 10px 0;
+            height: 45px;
+            overflow: hidden;
+            font-weight: bold;
+        }
+
+        .preco {
+            color: #198754;
+            font-weight: bold;
+        }
+
+        .descricao {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+            height: 60px;
+            overflow: hidden;
+        }
+
+        /* BOTÃO MELHORADO */
+        .btn {
+            display: block;
+            width: 100%;
+            margin-top: auto;
+            padding: 10px;
+            text-align: center;
+            background: #ff5722;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background: #e64a19;
+        }
+
+        footer {
+            margin-top: 45px;
+            padding: 25px;
+            background: #222;
+            color: #ccc;
+            text-align: center;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="topo">
+
+    <img src="{{ url_for('static', filename='img/logo.jpg') }}"
+         class="logo"
+         alt="Logo Loja">
+
+    <div>
+        <h1>🔥 Loja de Ofertas Afiliadas</h1>
+        <p>Ofertas selecionadas — site independente de afiliados</p>
+    </div>
+
+</header>
+
+<div class="container">
+
+    <form class="busca" method="GET" action="{{ url_for('home') }}">
+        <input type="text" name="q" value="{{ busca }}" placeholder="Busque produtos...">
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if busca %}
+        <h2>🔎 Resultado: {{ busca }}</h2>
+    {% endif %}
+
+    {% if recomendados %}
+        <h2>🏆 Recomendados</h2>
+        <div class="grid">
+            {% for p in recomendados %}
+                <div class="card">
+
+                    {% if p.imagem %}
+                        <img src="{{ p.imagem }}" loading="lazy" onerror="this.style.display='none'">
+                    {% endif %}
+
+                    <div class="nome">{{ p.nome|truncate(75, True, '...') }}</div>
+
+                    <div class="preco">R$ {{ "%.2f"|format(p.preco or 0) }}</div>
+
+                    <a class="btn"
+                       href="{{ url_for('go', produto_id=p.id) }}"
+                       target="_blank"
+                       onclick="fetch('/clique', {
+                            method: 'POST',
+                            headers: {'Content-Type': 'application/json'},
+                            body: JSON.stringify({produto_id: {{ p.id }}})
+                       })">
+                        🛒 Ver Oferta
+                    </a>
+
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% for categoria, subcats in grupos.items() %}
+        <h2>📦 {{ categoria }}</h2>
+
+        {% for subcategoria, produtos in subcats.items() %}
+            <h3>{{ subcategoria }}</h3>
+
+            <div class="grid">
+                {% for p in produtos %}
+                    <div class="card">
+
+                        {% if p.imagem %}
+                            <img src="{{ p.imagem }}" loading="lazy" onerror="this.style.display='none'">
+                        {% endif %}
+
+                        <div class="nome">{{ p.nome|truncate(75, True, '...') }}</div>
+
+                        <div class="preco">R$ {{ "%.2f"|format(p.preco or 0) }}</div>
+
+                        {% if p.descricao %}
+                            <div class="descricao">
+                                {{ (p.descricao or '')[:160] }}
+                                {% if p.descricao and p.descricao|length > 160 %}...{% endif %}
+                            </div>
+                        {% endif %}
+
+                        <a class="btn"
+                           href="{{ url_for('go', produto_id=p.id) }}"
+                           target="_blank"
+                           onclick="fetch('/clique', {
+                                method: 'POST',
+                                headers: {'Content-Type': 'application/json'},
+                                body: JSON.stringify({produto_id: {{ p.id }}})
+                           })">
+                            🛒 Ver Oferta
+                        </a>
+
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+</div>
+
+<footer>
+    <p><strong>Transparência:</strong> Este site contém links de afiliados.</p>
+    <p>Podemos receber comissão sem custo adicional para você.</p>
+    <p>Não somos a Shopee nem representantes oficiais.</p>
+</footer>
+
+</body>
+</html>

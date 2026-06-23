@@ -1,0 +1,27 @@
+DEFINA PARA CADASTRO
+NOME DO PRODUTO
+CATEGORIA
+SUBCATEGORIA
+PREÇO
+DICRICAO
+LINK
+DE
+
+Kit 3 Top Academia Suplex Nadador Roupas Fitness moda feminina Treino
+
+4.8
+
+949
+Avaliações
+1mil+ Vendidos
+Denunciar
+R$33,99
+
+
+http://127.0.0.1:5000/admin
+
+usuario>: Admin
+sernha:123
+
+linkafioliado shopeee
+https://affiliate.shopee.com.br

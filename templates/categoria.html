@@ -1,0 +1,20 @@
+<h1>📦 {{ categoria }}</h1>
+
+<a href="/">⬅ Voltar</a>
+
+{% for p in produtos %}
+
+<div class="card">
+
+    <img src="{{ p.imagem }}">
+    <h3>{{ p.nome }}</h3>
+    <p>{{ p.preco }}</p>
+    <p>{{ p.descricao }}</p>
+
+    <a href="{{ p.link }}">
+        <button>🛒 Comprar</button>
+    </a>
+
+</div>
+
+{% endfor %}
