@@ -20,12 +20,10 @@
             color: #333;
         }
 
-        /* TOPO MELHORADO */
         .topo {
             background: linear-gradient(135deg, #ff5722, #ff784e);
             color: white;
             padding: 20px 15px;
-
             display: flex;
             align-items: center;
             justify-content: center;
@@ -38,6 +36,7 @@
             width: 70px;
             height: 70px;
             object-fit: contain;
+            border-radius: 12px;
         }
 
         .topo h1 {
@@ -60,7 +59,7 @@
         .busca {
             display: flex;
             gap: 10px;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
         }
 
         .busca input {
@@ -76,7 +75,45 @@
             color: white;
             border: 0;
             border-radius: 6px;
+            font-weight: bold;
             cursor: pointer;
+        }
+
+        .busca button:hover {
+            background: #e64a19;
+        }
+
+        .aviso-afiliado {
+            background: #fff3e0;
+            border-left: 4px solid #ff5722;
+            border-radius: 6px;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: #5d4037;
+        }
+
+        .vitrine-btn {
+            text-align: center;
+            margin: 20px 0 30px;
+        }
+
+        .vitrine-btn a {
+            background: #ff5722;
+            color: white;
+            padding: 15px 22px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            font-size: 16px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: 0.2s;
+        }
+
+        .vitrine-btn a:hover {
+            background: #e64a19;
+            transform: scale(1.03);
         }
 
         h2 { margin: 35px 0 15px; }
@@ -88,7 +125,6 @@
             gap: 16px;
         }
 
-        /* CARD MELHORADO */
         .card {
             background: white;
             border-radius: 10px;
@@ -102,7 +138,6 @@
 
         .card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 14px rgba(0,0,0,0.15);
         }
 
         .card img {
@@ -115,9 +150,9 @@
         .nome {
             font-size: 14px;
             margin: 10px 0;
+            font-weight: bold;
             height: 45px;
             overflow: hidden;
-            font-weight: bold;
         }
 
         .preco {
@@ -128,12 +163,11 @@
         .descricao {
             font-size: 12px;
             color: #666;
-            margin-top: 5px;
+            margin-top: 8px;
             height: 60px;
             overflow: hidden;
         }
 
-        /* BOTÃO MELHORADO */
         .btn {
             display: block;
             width: 100%;
@@ -145,7 +179,6 @@
             text-decoration: none;
             border-radius: 6px;
             font-weight: bold;
-            transition: 0.2s;
         }
 
         .btn:hover {
@@ -166,55 +199,149 @@
 <body>
 
 <header class="topo">
-
-    <img src="{{ url_for('static', filename='img/logo.jpg') }}"
-         class="logo"
-         alt="Logo Loja">
+    <img src="{{ url_for('static', filename='img/logo.jpg') }}" class="logo" alt="Logo">
 
     <div>
         <h1>🔥 Loja de Ofertas Afiliadas</h1>
         <p>Ofertas selecionadas — site independente de afiliados</p>
     </div>
-
 </header>
 
-<div class="container">
+<main class="container">
 
     <form class="busca" method="GET" action="{{ url_for('home') }}">
-        <input type="text" name="q" value="{{ busca }}" placeholder="Busque produtos...">
+        <input type="search" name="q" value="{{ busca or '' }}" placeholder="Busque produtos...">
         <button type="submit">Buscar</button>
     </form>
 
+   <!-- 🔥 BOTÕES DAS VITRINES -->
+<div class="vitrine-btn">
+
+    <!-- Shopee -->
+    <a href="https://collshp.com/franciscoasilva233745/category/3811649?share_channel_code=1&view=storefront"
+       target="_blank"
+       rel="sponsored noopener noreferrer">
+        🛍️ VER VITRINE COMPLETA NA SHOPEE
+    </a>
+
+    <br><br>
+
+    <!-- Mercado Livre -->
+    <a href="https://meli.la/2rA1CAM"
+       target="_blank"
+       rel="sponsored noopener noreferrer"
+       style="
+            background:#3483fa;
+            color:#ffffff;
+            padding:15px 22px;
+            border-radius:12px;
+            text-decoration:none;
+            font-weight:bold;
+            display:inline-block;
+            font-size:16px;
+            box-shadow:0 4px 10px rgba(0,0,0,.2);
+        ">
+        🛒 VER VITRINE COMPLETA NO MERCADO LIVRE
+    </a>
+<br><br>
+
+<!-- HOTMART -->
+<a href="https://go.hotmart.com/R102490444L"
+   target="_blank"
+   rel="sponsored noopener noreferrer"
+   style="
+        background:#8e44ad;
+        color:#ffffff;
+        padding:15px 22px;
+        border-radius:12px;
+        text-decoration:none;
+        font-weight:bold;
+        display:inline-block;
+        font-size:16px;
+        box-shadow:0 4px 10px rgba(0,0,0,.2);
+    ">
+    📘 VER OFERTA NA HOTMART
+</a>
+<br><br>
+<a href="https://www.amazon.com.br/gp/bestsellers?tag=frankprimo-20"
+   target="_blank"
+   rel="nofollow sponsored noopener noreferrer"
+   style="
+        background:#FF9900;
+        color:#111;
+        padding:15px 22px;
+        border-radius:12px;
+        text-decoration:none;
+        font-weight:bold;
+        display:inline-block;
+        font-size:16px;
+        box-shadow:0 4px 10px rgba(0,0,0,.2);
+">
+🏆 VER OS MAIS VENDIDOS DA AMAZON
+</a>
+
+<br><br>
+
+    <a href="https://temu.to/k/guunryqizv3"
+   target="_blank"
+   rel="sponsored noopener noreferrer"
+   style="
+        background:#000;
+        color:#fff;
+        padding:15px 22px;
+        border-radius:12px;
+        text-decoration:none;
+        font-weight:bold;
+        display:inline-block;
+        font-size:16px;
+        box-shadow:0 4px 10px rgba(0,0,0,.2);
+    ">
+    🏆 VER OS MAIS VENDIDOS DA TEMU
+</a>
+    
+</div>
+
+<div class="aviso-afiliado">    
+    <strong>Transparência:</strong>
+    Este site participa de programas de afiliados da Shopee, Mercado Livre, Hotmart, Amazon e Temu.
+    Podemos receber comissão quando você realiza uma compra através dos nossos links, sem custo adicional para você.
+    <br>
+    <small>
+        Não somos representantes oficiais das plataformas mencionadas. 
+        Produtos, preços, promoções e disponibilidade são definidos pelas respectivas lojas.
+    </small>
+</div>
     {% if busca %}
         <h2>🔎 Resultado: {{ busca }}</h2>
     {% endif %}
 
     {% if recomendados %}
-        <h2>🏆 Recomendados</h2>
+        <h2>🏆 Produtos Recomendados</h2>
+
         <div class="grid">
             {% for p in recomendados %}
-                <div class="card">
+            <div class="card">
 
-                    {% if p.imagem %}
-                        <img src="{{ p.imagem }}" loading="lazy" onerror="this.style.display='none'">
-                    {% endif %}
+                {% if p.imagem %}
+                <img src="{{ p.imagem }}" alt="{{ p.nome }}">
+                {% endif %}
 
-                    <div class="nome">{{ p.nome|truncate(75, True, '...') }}</div>
+                <div class="nome">{{ p.nome|truncate(75, True, '...') }}</div>
+                <div class="preco">R$ {{ "%.2f"|format(p.preco or 0) }}</div>
 
-                    <div class="preco">R$ {{ "%.2f"|format(p.preco or 0) }}</div>
-
-                    <a class="btn"
-                       href="{{ url_for('go', produto_id=p.id) }}"
-                       target="_blank"
-                       onclick="fetch('/clique', {
-                            method: 'POST',
-                            headers: {'Content-Type': 'application/json'},
-                            body: JSON.stringify({produto_id: {{ p.id }}})
-                       })">
-                        🛒 Ver Oferta
-                    </a>
-
+                {% if p.descricao %}
+                <div class="descricao">
+                    {{ (p.descricao or '')[:160] }}
                 </div>
+                {% endif %}
+
+               <a class="btn"
+   href="{{ url_for('go', produto_id=p.id) }}"
+   target="_blank"
+   rel="noopener noreferrer sponsored">
+    🛒 Ver Oferta
+</a>
+            </div>
             {% endfor %}
         </div>
     {% endif %}
@@ -227,47 +354,74 @@
 
             <div class="grid">
                 {% for p in produtos %}
-                    <div class="card">
+                <div class="card">
 
-                        {% if p.imagem %}
-                            <img src="{{ p.imagem }}" loading="lazy" onerror="this.style.display='none'">
-                        {% endif %}
+                    {% if p.imagem %}
+                    <img src="{{ p.imagem }}" alt="{{ p.nome }}">
+                    {% endif %}
 
-                        <div class="nome">{{ p.nome|truncate(75, True, '...') }}</div>
+                    <div class="nome">{{ p.nome|truncate(75, True, '...') }}</div>
+                    <div class="preco">R$ {{ "%.2f"|format(p.preco or 0) }}</div>
 
-                        <div class="preco">R$ {{ "%.2f"|format(p.preco or 0) }}</div>
-
-                        {% if p.descricao %}
-                            <div class="descricao">
-                                {{ (p.descricao or '')[:160] }}
-                                {% if p.descricao and p.descricao|length > 160 %}...{% endif %}
-                            </div>
-                        {% endif %}
-
-                        <a class="btn"
-                           href="{{ url_for('go', produto_id=p.id) }}"
-                           target="_blank"
-                           onclick="fetch('/clique', {
-                                method: 'POST',
-                                headers: {'Content-Type': 'application/json'},
-                                body: JSON.stringify({produto_id: {{ p.id }}})
-                           })">
-                            🛒 Ver Oferta
-                        </a>
-
+                    {% if p.descricao %}
+                    <div class="descricao">
+                        {{ (p.descricao or '')[:160] }}
                     </div>
+                    {% endif %}
+
+                    <a class="btn"
+                       href="{{ url_for('go', produto_id=p.id) }}"
+                       target="_blank"
+                       rel="noopener noreferrer sponsored">
+                        🛒 Ver Oferta
+                    </a>
+
+                </div>
                 {% endfor %}
             </div>
         {% endfor %}
     {% endfor %}
 
-</div>
+</main>
 
 <footer>
-    <p><strong>Transparência:</strong> Este site contém links de afiliados.</p>
-    <p>Podemos receber comissão sem custo adicional para você.</p>
-    <p>Não somos a Shopee nem representantes oficiais.</p>
-</footer>
+    <p><strong>Política de Afiliados</strong></p>
 
+    <p>
+        A Loja de Ofertas Afiliadas participa de programas de afiliados da Shopee,
+        Mercado Livre, Amazon, Hotmart e Temu.
+    </p>
+
+    <p>
+        Alguns links deste site são links de afiliados. Caso você realize uma compra
+        ou outra ação elegível, podemos receber uma comissão sem custo adicional para você.
+    </p>
+
+    <p>
+        O funcionamento das comissões depende das regras de cada plataforma,
+        incluindo rastreamento de cliques, elegibilidade e políticas de devolução.
+    </p>
+
+    <p>
+        Não somos representantes oficiais das plataformas citadas. Todas as marcas
+        pertencem aos seus respectivos proprietários.
+    </p>
+
+    <p>
+        Preços, promoções e disponibilidade podem mudar sem aviso prévio.
+    </p>
+
+    <hr style="margin:20px auto;border:0;border-top:1px solid #555;max-width:900px;">
+
+    <p>
+        <a href="/privacidade" style="color:#fff;">Política de Privacidade</a> |
+        <a href="/termos" style="color:#fff;">Termos de Uso</a> |
+        <a href="/cookies" style="color:#fff;">Política de Cookies</a>
+    </p>
+
+    <p style="font-size:12px;color:#aaa;">
+        © 2026 Loja de Ofertas Afiliadas
+    </p>
+</footer>
 </body>
 </html>
