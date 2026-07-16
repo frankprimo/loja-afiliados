@@ -24,11 +24,15 @@ app.config.update(
 database_url = os.getenv("DATABASE_URL")
 
 if database_url:
-    if database_url.startswith("postgres://"):
-        database_url = database_url.replace("postgres://", "postgresql://", 1)
+    database_url = database_url.replace(
+        "postgres://",
+        "postgresql://"
+    )
+
     app.config["SQLALCHEMY_DATABASE_URI"] = database_url
+
 else:
-    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///C:/Shopee/database.db"
+    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database_reduzido.db"
 
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
