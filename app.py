@@ -37,6 +37,12 @@ else:
         "database_reduzido.db"
     )
 
+    print("================================")
+    print("BANCO USADO PELO FLASK:", caminho_db)
+    print("ARQUIVO EXISTE:", os.path.exists(caminho_db))
+    print("TAMANHO:", os.path.getsize(caminho_db) if os.path.exists(caminho_db) else 0)
+    print("================================")
+
     app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{caminho_db}"
 
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
