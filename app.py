@@ -32,7 +32,12 @@ if database_url:
     app.config["SQLALCHEMY_DATABASE_URI"] = database_url
 
 else:
-    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database_reduzido.db"
+    caminho_db = os.path.join(
+        os.path.dirname(__file__),
+        "database_reduzido.db"
+    )
+
+    app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{caminho_db}"
 
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
