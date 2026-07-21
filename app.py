@@ -17,41 +17,29 @@ app.config.update(
     SESSION_COOKIE_SAMESITE="Lax",
     SESSION_COOKIE_SECURE=False
 )
-
 # ======================
 # DATABASE
 # ======================
-database_url = os.getenv("DATABASE_URL")
 
-if database_url:
-    database_url = database_url.replace(
-        "postgres://",
-        "postgresql://"
-    )
+caminho_db = os.path.join(
+    os.path.dirname(__file__),
+    "database_reduzido.db"
+)
 
-    app.config["SQLALCHEMY_DATABASE_URI"] = database_url
+print("==============================")
+print("BANCO USADO:", caminho_db)
+print("EXISTE:", os.path.exists(caminho_db))
 
-else:
-    caminho_db = os.path.join(
-        os.path.dirname(__file__),
-        "database_reduzido.db"
-    )
+if os.path.exists(caminho_db):
+    print("TAMANHO:", os.path.getsize(caminho_db))
 
-    print("================================")
-    print("BANCO USADO PELO FLASK:", caminho_db)
-    print("ARQUIVO EXISTE:", os.path.exists(caminho_db))
-    print("TAMANHO:", os.path.getsize(caminho_db) if os.path.exists(caminho_db) else 0)
-    print("================================")
+print("==============================")
 
-    app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{caminho_db}"
+app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{caminho_db}"
 
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app)
-
-# ======================
-# MODELOS
-# ======================
 class Produto(db.Model):
     __tablename__ = "produto"
 
