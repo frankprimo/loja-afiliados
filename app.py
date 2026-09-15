@@ -40,6 +40,12 @@ app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{caminho_db}"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app)
+# ======================
+# HEALTH CHECK
+# ======================
+@app.route("/health")
+def health():
+    return "OK", 200
 class Produto(db.Model):
     __tablename__ = "produto"
 
@@ -324,7 +330,4 @@ def dashboard():
 # START
 # ======================
 if __name__ == "__main__":
-    with app.app_context():
-        db.create_all()
-
     app.run(host="0.0.0.0", port=5000)
