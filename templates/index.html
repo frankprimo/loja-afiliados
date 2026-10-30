@@ -193,6 +193,70 @@
             text-align: center;
             font-size: 13px;
         }
+        
+        /* HISTÓRIA DO DIA */
+        .historia-dia {
+            max-width: 850px;
+            margin: 25px auto;
+            padding: 24px;
+            background: linear-gradient(135deg, #fff8ed, #ffe3c5);
+            border: 1px solid #f4c99e;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .historia-etiqueta {
+            display: inline-block;
+            background: #ff5722;
+            color: white;
+            padding: 7px 13px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .historia-dia h2 {
+            color: #b74715;
+            font-size: 23px;
+            margin: 16px 0 10px;
+        }
+
+        .historia-data {
+            color: #777;
+            font-size: 13px;
+        }
+
+        .historia-mensagem {
+            color: #333;
+            font-size: 17px;
+            line-height: 1.7;
+            margin: 20px 0;
+        }
+
+        .historia-rodape {
+            border-top: 1px solid #edc9a6;
+            padding-top: 15px;
+            color: #a74718;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            .historia-dia {
+                padding: 18px;
+                margin: 20px 0;
+            }
+
+            .historia-dia h2 {
+                font-size: 19px;
+            }
+
+            .historia-mensagem {
+                font-size: 15px;
+            }
+        }
+
     </style>
 </head>
 
@@ -312,6 +376,31 @@
         Produtos, preços, promoções e disponibilidade são definidos pelas respectivas lojas.
     </small>
 </div>
+    {% if historia_dia is defined %}
+<section class="historia-dia">
+
+    <span class="historia-etiqueta">
+        ✨ MENSAGEM DO DIA
+    </span>
+
+    <h2>🌅 UM NOVO DIA, UMA NOVA HISTÓRIA</h2>
+
+    <div class="historia-data">
+        📅 {{ historia_dia.dia }}, {{ historia_dia.data }}
+    </div>
+
+    <div class="historia-mensagem">
+        {{ historia_dia.mensagem }}
+    </div>
+
+    <div class="historia-rodape">
+        🌙 Amanhã: uma nova história te espera.
+        <br>
+        ✨ A mensagem de amanhã só será revelada quando o dia chegar.
+    </div>
+
+</section>
+{% endif %}
     {% if busca %}
         <h2>🔎 Resultado: {{ busca }}</h2>
     {% endif %}
