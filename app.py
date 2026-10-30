@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import or_, func
 import os
 import uuid
-from datetime import datetime
+from historias import obter_historia_do_dia
 
 # ======================
 # APP
