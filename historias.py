@@ -2,23 +2,28 @@
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
+# ==================================================
 # HISTÓRIAS DA SEMANA
+# Objetivo: motivar, criar relacionamento com visitantes
+# e incentivar a descoberta de ofertas da loja.
 # 0 = Domingo | 6 = Sábado
+# ==================================================
 
 historias_semana = {
-    0: """Descansar também faz parte do caminho. Nem todos os dias são de corrida — alguns dias são simplesmente para respirar, recarregar e agradecer. Isso não é parar. É se preparar para ir mais longe. 🌙""",
 
-    1: """Comece devagar, mas não pare. Um pequeno passo já é suficiente para hoje. O importante é não perder de vista para onde você quer ir. O resto vem com o tempo. 🌅""",
+    0: """Domingo é dia de respirar, agradecer e renovar as energias. Aproveite este momento para cuidar de você e planejar uma nova semana. E, se estiver procurando algo para facilitar sua rotina ou realizar um desejo, conheça as ofertas selecionadas em nossa Loja de Ofertas Afiliadas. Cada nova semana traz novas possibilidades! 🌙🛍️""",
 
-    2: """Se hoje não saiu como planejou, respire. Amanhã traz uma nova chance. O ontem já ensinou, o hoje está acontecendo e o amanhã ainda é seu para construir. ✨""",
+    1: """Uma nova semana começa com novas oportunidades! Dê um passo de cada vez, mantenha seus objetivos e não desista dos seus planos. Aproveite também para conhecer nossas seleções de produtos na Shopee, Mercado Livre, Amazon, Temu e Hotmart. Talvez aquela solução ou oportunidade que você procura esteja entre nossas ofertas! 🌅🛒""",
 
-    3: """Você é mais forte do que os desafios que enfrenta. Cada dificuldade superada é uma lição que te torna melhor do que era ontem. Confie no seu processo. 💪""",
+    2: """Nem tudo precisa acontecer de uma vez. Pequenas escolhas podem fazer diferença no seu dia. Pesquise, compare e escolha com consciência aquilo que realmente precisa. Nossa loja reúne ofertas e produtos de diferentes plataformas para ajudar você a descobrir novas possibilidades. ✨🛍️""",
 
-    4: """Não se compare com ninguém. Seu tempo não precisa ser igual ao de outra pessoa. Floresça no seu ritmo. O importante é que você esteja progredindo, mesmo que devagar. 🌸""",
+    3: """Você é mais forte do que os desafios que enfrenta. Continue construindo seus objetivos com dedicação e confiança. E lembre-se: boas escolhas também fazem parte de uma vida mais organizada. Visite nossas vitrines e descubra produtos que podem ajudar no seu dia a dia. 💪🛒""",
 
-    5: """Olhe para trás com gratidão, para frente com esperança. Você já chegou até aqui — isso prova que é capaz. Confie no que ainda está por vir. O melhor está a caminho. 🌟""",
+    4: """Cada pessoa tem seu próprio ritmo, seus sonhos e suas prioridades. Não se compare: valorize suas conquistas e faça escolhas que combinem com sua realidade. Na Loja de Ofertas Afiliadas, você encontra seleções de produtos de diferentes lojas para pesquisar e escolher com tranquilidade. 🌸🛍️""",
 
-    6: """O descanso de hoje é a força de amanhã. Permita-se parar um instante. Cuide de sua mente e de seu coração. Você merece paz e tranquilidade. Amanhã recomeça com mais clareza. 💛"""
+    5: """Sexta-feira chegou! Olhe para trás com gratidão e para frente com esperança. Que seu dia seja cheio de boas notícias e boas oportunidades. Antes de comprar, aproveite para conhecer nossas ofertas, comparar opções e encontrar produtos que façam sentido para você. 🌟🛒""",
+
+    6: """O sábado é uma oportunidade para aproveitar a vida, cuidar da casa, da família e de você. Se estiver procurando algo especial ou útil para sua rotina, visite nossas vitrines e descubra as seleções de produtos disponíveis. Que seu dia seja leve, feliz e cheio de boas escolhas! 💛🛍️"""
 }
 
 
