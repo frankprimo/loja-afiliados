@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import or_, func
 import os
 import uuid
+from datetime import datetime
 from historias import obter_historia_do_dia
 
 # ======================
@@ -140,9 +141,9 @@ def home():
     query = query.order_by(Produto.id.desc())
 
     paginacao = query.paginate(
-        page=pagina,
-        per_page=24,
-        error_out=False
+    page=pagina,
+    per_page=24,
+    error_out=False
     )
 
     produtos = paginacao.items
@@ -178,7 +179,8 @@ def home():
         grupos=grupos,
         recomendados=recomendados,
         paginacao=paginacao,
-        busca=busca
+        busca=busca,
+        historia_dia=obter_historia_do_dia()
     )
 
 # ======================
@@ -279,9 +281,9 @@ def categoria(nome):
         produtos=produtos,
         grupos=grupos,
         paginacao=paginacao,
-        busca=""
+        busca="",
+        historia_dia=obter_historia_do_dia()
     )
-
 # ======================
 # LOGIN / ADMIN
 # ======================
