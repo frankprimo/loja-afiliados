@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -9,96 +9,8 @@
 
     <meta name="description" content="Ofertas selecionadas de produtos com links de afiliados.">
     <meta name="robots" content="index, follow">
-/* =========================================
-   MENSAGEM DIÁRIA — FP DIGITAL
-========================================= */
+    <meta name="theme-color" content="#ff5722">
 
-.historia-dia {
-    width: 100%;
-    max-width: 100%;
-    margin: 25px auto;
-    padding: 22px;
-    background: #fffaf2;
-    border: 1px solid #f2d6b8;
-    border-radius: 16px;
-    box-sizing: border-box;
-    overflow-wrap: break-word;
-}
-
-.historia-dia .selo {
-    display: inline-block;
-    padding: 7px 12px;
-    margin-bottom: 12px;
-    background: #fff0dc;
-    color: #a64b00;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: bold;
-}
-
-.historia-dia h2 {
-    color: #c45116;
-    font-size: 22px;
-    margin: 8px 0;
-}
-
-.historia-dia h3 {
-    color: #333;
-    font-size: 18px;
-    margin: 18px 0 8px;
-}
-
-.historia-dia p {
-    color: #444;
-    font-size: 15px;
-    line-height: 1.7;
-    margin: 8px 0;
-}
-
-.historia-dia .versiculo {
-    padding: 14px;
-    background: #fff;
-    border-left: 4px solid #e87524;
-    border-radius: 8px;
-    font-style: italic;
-}
-
-.historia-dia .referencia {
-    color: #a64b00;
-    font-weight: bold;
-}
-
-.historia-dia .direito-consumidor {
-    margin-top: 20px;
-    padding: 15px;
-    background: #f1f7ff;
-    border-left: 4px solid #3976b9;
-    border-radius: 8px;
-}
-
-.historia-dia .direito-consumidor h3 {
-    color: #245b91;
-    margin-top: 0;
-}
-
-@media (max-width: 600px) {
-    .historia-dia {
-        padding: 16px;
-        margin: 18px auto;
-    }
-
-    .historia-dia h2 {
-        font-size: 19px;
-    }
-
-    .historia-dia h3 {
-        font-size: 17px;
-    }
-
-    .historia-dia p {
-        font-size: 14px;
-    }
-}
     <style>
         * {
             box-sizing: border-box;
@@ -106,6 +18,7 @@
 
         html {
             width: 100%;
+            max-width: 100%;
             overflow-x: hidden;
         }
 
@@ -116,9 +29,16 @@
             padding: 0;
             color: #333;
             width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
         }
 
         /* CABEÇALHO */
+
         .topo {
             background: linear-gradient(135deg, #ff5722, #ff784e);
             color: white;
@@ -129,6 +49,7 @@
             gap: 15px;
             flex-wrap: wrap;
             text-align: center;
+            width: 100%;
         }
 
         .logo {
@@ -150,14 +71,17 @@
         }
 
         /* CONTEÚDO */
+
         .container {
             width: 100%;
             max-width: 1280px;
             margin: auto;
             padding: 20px;
+            min-width: 0;
         }
 
         /* BUSCA */
+
         .busca {
             display: flex;
             gap: 10px;
@@ -189,6 +113,7 @@
         }
 
         /* BOTÕES DAS VITRINES */
+
         .vitrine-btn {
             display: flex;
             flex-direction: column;
@@ -222,6 +147,7 @@
         }
 
         /* AVISO DE AFILIADOS */
+
         .aviso-afiliado {
             background: #fff3e0;
             border-left: 4px solid #ff5722;
@@ -234,6 +160,7 @@
         }
 
         /* TÍTULOS */
+
         h2 {
             margin: 35px 0 15px;
             font-size: 22px;
@@ -245,7 +172,79 @@
             font-size: 17px;
         }
 
+        /* MENSAGEM DIÁRIA */
+
+        .historia-dia {
+            width: 100%;
+            max-width: 850px;
+            margin: 25px auto;
+            padding: 24px;
+            background: linear-gradient(135deg, #fff8ed, #ffe3c5);
+            border: 1px solid #f4c99e;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            text-align: center;
+            overflow-wrap: break-word;
+        }
+
+        .historia-dia .selo {
+            display: inline-block;
+            background: #ff5722;
+            color: white;
+            padding: 7px 13px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .historia-dia h2 {
+            color: #b74715;
+            font-size: 23px;
+            margin: 16px 0 10px;
+        }
+
+        .historia-dia h3 {
+            color: #333;
+            font-size: 18px;
+            margin: 18px 0 10px;
+        }
+
+        .historia-dia p {
+            color: #444;
+            font-size: 15px;
+            line-height: 1.7;
+            margin: 10px 0;
+        }
+
+        .historia-dia .versiculo {
+            padding: 14px;
+            background: #fff;
+            border-left: 4px solid #e87524;
+            border-radius: 8px;
+            font-style: italic;
+        }
+
+        .historia-dia .referencia {
+            color: #a64b00;
+            font-weight: bold;
+        }
+
+        .historia-dia .direito-consumidor {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f1f7ff;
+            border-left: 4px solid #3976b9;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .historia-dia .direito-consumidor h3 {
+            color: #245b91;
+            margin-top: 0;
+        }
+
         /* PRODUTOS */
+
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
@@ -318,58 +317,8 @@
             background: #e64a19;
         }
 
-        /* HISTÓRIA DO DIA */
-        .historia-dia {
-            width: 100%;
-            max-width: 850px;
-            margin: 25px auto;
-            padding: 24px;
-            background: linear-gradient(135deg, #fff8ed, #ffe3c5);
-            border: 1px solid #f4c99e;
-            border-radius: 16px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            text-align: center;
-        }
-
-        .historia-etiqueta {
-            display: inline-block;
-            background: #ff5722;
-            color: white;
-            padding: 7px 13px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        .historia-dia h2 {
-            color: #b74715;
-            font-size: 23px;
-            margin: 16px 0 10px;
-        }
-
-        .historia-data {
-            color: #777;
-            font-size: 13px;
-        }
-
-        .historia-mensagem {
-            color: #333;
-            font-size: 17px;
-            line-height: 1.7;
-            margin: 20px 0;
-            overflow-wrap: break-word;
-        }
-
-        .historia-rodape {
-            border-top: 1px solid #edc9a6;
-            padding-top: 15px;
-            color: #a74718;
-            font-weight: bold;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
         /* RODAPÉ */
+
         footer {
             margin-top: 45px;
             padding: 25px 15px;
@@ -389,6 +338,7 @@
         }
 
         /* CELULARES */
+
         @media (max-width: 600px) {
 
             .topo {
@@ -439,6 +389,7 @@
                 padding: 14px 10px;
                 font-size: 14px;
                 transform: none;
+                overflow-wrap: anywhere;
             }
 
             .aviso-afiliado {
@@ -453,6 +404,27 @@
 
             h3 {
                 font-size: 16px;
+            }
+
+            .historia-dia {
+                padding: 18px 13px;
+                margin: 20px auto;
+            }
+
+            .historia-dia h2 {
+                font-size: 19px;
+            }
+
+            .historia-dia h3 {
+                font-size: 17px;
+            }
+
+            .historia-dia p {
+                font-size: 14px;
+            }
+
+            .historia-dia .direito-consumidor {
+                padding: 12px;
             }
 
             .grid {
@@ -488,24 +460,6 @@
                 font-size: 12px;
             }
 
-            .historia-dia {
-                padding: 18px 13px;
-                margin: 20px 0;
-            }
-
-            .historia-dia h2 {
-                font-size: 19px;
-            }
-
-            .historia-mensagem {
-                font-size: 15px;
-                line-height: 1.6;
-            }
-
-            .historia-rodape {
-                font-size: 12px;
-            }
-
             footer {
                 padding: 22px 12px;
                 font-size: 12px;
@@ -513,6 +467,7 @@
         }
 
         /* TELAS MUITO PEQUENAS */
+
         @media (max-width: 360px) {
 
             .topo h1 {
@@ -539,6 +494,7 @@
                 font-size: 14px;
             }
         }
+
     </style>
 </head>
 
@@ -549,7 +505,7 @@
     <img
         src="{{ url_for('static', filename='img/logo.jpg') }}"
         class="logo"
-        alt="Logo"
+        alt="Logo da Loja de Ofertas Afiliadas"
     >
 
     <div>
@@ -562,6 +518,7 @@
 <main class="container">
 
     <!-- BUSCA DE PRODUTOS -->
+
     <form class="busca" method="GET" action="{{ url_for('home') }}">
 
         <input
@@ -569,6 +526,7 @@
             name="q"
             value="{{ busca or '' }}"
             placeholder="Busque produtos..."
+            aria-label="Buscar produtos"
         >
 
         <button type="submit">Buscar</button>
@@ -576,9 +534,11 @@
     </form>
 
     <!-- BOTÕES DAS VITRINES -->
+
     <div class="vitrine-btn">
 
         <!-- SHOPEE -->
+
         <a
             href="https://collshp.com/franciscoasilva233745/category/3811649?share_channel_code=1&view=storefront"
             target="_blank"
@@ -588,6 +548,7 @@
         </a>
 
         <!-- MERCADO LIVRE -->
+
         <a
             href="https://meli.la/2rA1CAM"
             target="_blank"
@@ -608,6 +569,7 @@
         </a>
 
         <!-- HOTMART -->
+
         <a
             href="https://go.hotmart.com/R102490444L"
             target="_blank"
@@ -628,6 +590,7 @@
         </a>
 
         <!-- AMAZON -->
+
         <a
             href="https://www.amazon.com.br/hz/wishlist/ls/1V4OCSN5X8HA9?linkCode=ll2&amp;tag=lojaofertas03-20&amp;linkId=c33460335c1304e33787c046620a7c0f&amp;ref_=as_li_ss_tl"
             target="_blank"
@@ -648,6 +611,7 @@
         </a>
 
         <!-- TEMU -->
+
         <a
             href="https://share.temu.com/O7ymzSphn6A"
             target="_blank"
@@ -670,6 +634,7 @@
     </div>
 
     <!-- ACESSO AOS E-BOOKS DIGITAIS -->
+
     <div class="vitrine-btn">
 
         <a
@@ -694,6 +659,7 @@
     </div>
 
     <!-- AVISO DE AFILIADOS -->
+
     <div class="aviso-afiliado">
 
         <strong>Transparência:</strong>
@@ -715,62 +681,67 @@
     </div>
 
     <!-- HISTÓRIA DO DIA -->
-    {% style and historia_dia %}
 
-<section class="historia-dia">
+    {% if historia_dia is defined and historia_dia %}
 
-    <span class="selo">✨ MENSAGEM DO DIA</span>
+    <section class="historia-dia">
 
-    <h2>🌅 UM NOVO DIA, UMA NOVA HISTÓRIA</h2>
+        <span class="selo">✨ MENSAGEM DO DIA</span>
 
-    <p>
-        <strong>{{ historia_dia.dia }}</strong>
-        — {{ historia_dia.data }}
-    </p>
-
-    <h3>{{ historia_dia.tema }}</h3>
-
-    <div class="versiculo">
-        <p>
-            “{{ historia_dia.versiculo }}”
-        </p>
-
-        <p class="referencia">
-            {{ historia_dia.referencia }}
-        </p>
-    </div>
-
-    <h3>💛 Reflexão do dia</h3>
-
-    <p>
-        {{ historia_dia.mensagem }}
-    </p>
-
-    <div class="direito-consumidor">
-
-        <h3>⚖️ DIREITO DO CONSUMIDOR</h3>
+        <h2>🌅 UM NOVO DIA, UMA NOVA HISTÓRIA</h2>
 
         <p>
-            {{ historia_dia.direito }}
+            <strong>{{ historia_dia.dia }}</strong>
+            — {{ historia_dia.data }}
         </p>
+
+        <h3>{{ historia_dia.tema }}</h3>
+
+        <div class="versiculo">
+
+            <p>
+                “{{ historia_dia.versiculo }}”
+            </p>
+
+            <p class="referencia">
+                {{ historia_dia.referencia }}
+            </p>
+
+        </div>
+
+        <h3>💛 Reflexão do dia</h3>
 
         <p>
-            <small>
-                Informação educativa. Consulte a legislação aplicável
-                para conhecer seus direitos em cada situação.
-            </small>
+            {{ historia_dia.mensagem }}
         </p>
 
-    </div>
+        <div class="direito-consumidor">
 
-    <p>
-        <strong>Amanhã: uma nova mensagem espera por você!</strong>
-    </p>
+            <h3>⚖️ DIREITO DO CONSUMIDOR</h3>
 
-</section>
+            <p>
+                {{ historia_dia.direito }}
+            </p>
 
-{% endif %}
+            <p>
+                <small>
+                    Informação educativa. Consulte a legislação aplicável
+                    para conhecer seus direitos em cada situação.
+                </small>
+            </p>
+
+        </div>
+
+        <p>
+            <strong>Amanhã: uma nova mensagem espera por você!</strong>
+        </p>
+
+    </section>
+
+    {% endif %}
+
     <!-- RESULTADO DA BUSCA -->
+
     {% if busca %}
 
         <h2>🔎 Resultado: {{ busca }}</h2>
@@ -778,6 +749,7 @@
     {% endif %}
 
     <!-- PRODUTOS RECOMENDADOS -->
+
     {% if recomendados %}
 
         <h2>🏆 Produtos Recomendados</h2>
@@ -832,6 +804,7 @@
     {% endif %}
 
     <!-- PRODUTOS POR CATEGORIA -->
+
     {% for categoria, subcats in grupos.items() %}
 
         <h2>📦 {{ categoria }}</h2>
@@ -894,6 +867,7 @@
 </main>
 
 <!-- RODAPÉ -->
+
 <footer>
 
     <p><strong>Política de Afiliados</strong></p>
@@ -939,3 +913,4 @@
 
 </body>
 </html>
+```
