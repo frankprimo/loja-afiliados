@@ -9,7 +9,96 @@
 
     <meta name="description" content="Ofertas selecionadas de produtos com links de afiliados.">
     <meta name="robots" content="index, follow">
+/* =========================================
+   MENSAGEM DIÁRIA — FP DIGITAL
+========================================= */
 
+.historia-dia {
+    width: 100%;
+    max-width: 100%;
+    margin: 25px auto;
+    padding: 22px;
+    background: #fffaf2;
+    border: 1px solid #f2d6b8;
+    border-radius: 16px;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+}
+
+.historia-dia .selo {
+    display: inline-block;
+    padding: 7px 12px;
+    margin-bottom: 12px;
+    background: #fff0dc;
+    color: #a64b00;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.historia-dia h2 {
+    color: #c45116;
+    font-size: 22px;
+    margin: 8px 0;
+}
+
+.historia-dia h3 {
+    color: #333;
+    font-size: 18px;
+    margin: 18px 0 8px;
+}
+
+.historia-dia p {
+    color: #444;
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 8px 0;
+}
+
+.historia-dia .versiculo {
+    padding: 14px;
+    background: #fff;
+    border-left: 4px solid #e87524;
+    border-radius: 8px;
+    font-style: italic;
+}
+
+.historia-dia .referencia {
+    color: #a64b00;
+    font-weight: bold;
+}
+
+.historia-dia .direito-consumidor {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f1f7ff;
+    border-left: 4px solid #3976b9;
+    border-radius: 8px;
+}
+
+.historia-dia .direito-consumidor h3 {
+    color: #245b91;
+    margin-top: 0;
+}
+
+@media (max-width: 600px) {
+    .historia-dia {
+        padding: 16px;
+        margin: 18px auto;
+    }
+
+    .historia-dia h2 {
+        font-size: 19px;
+    }
+
+    .historia-dia h3 {
+        font-size: 17px;
+    }
+
+    .historia-dia p {
+        font-size: 14px;
+    }
+}
     <style>
         * {
             box-sizing: border-box;
@@ -626,34 +715,61 @@
     </div>
 
     <!-- HISTÓRIA DO DIA -->
-    {% if historia_dia is defined and historia_dia %}
+    {% style and historia_dia %}
 
-    <section class="historia-dia">
+<section class="historia-dia">
 
-        <span class="historia-etiqueta">
-            ✨ MENSAGEM DO DIA
-        </span>
+    <span class="selo">✨ MENSAGEM DO DIA</span>
 
-        <h2>🌅 UM NOVO DIA, UMA NOVA HISTÓRIA</h2>
+    <h2>🌅 UM NOVO DIA, UMA NOVA HISTÓRIA</h2>
 
-        <div class="historia-data">
-            📅 {{ historia_dia.dia }}, {{ historia_dia.data }}
-        </div>
+    <p>
+        <strong>{{ historia_dia.dia }}</strong>
+        — {{ historia_dia.data }}
+    </p>
 
-        <div class="historia-mensagem">
-            {{ historia_dia.mensagem }}
-        </div>
+    <h3>{{ historia_dia.tema }}</h3>
 
-        <div class="historia-rodape">
-            🌙 Amanhã: uma nova história te espera.
-            <br>
-            ✨ A mensagem de amanhã só será revelada quando o dia chegar.
-        </div>
+    <div class="versiculo">
+        <p>
+            “{{ historia_dia.versiculo }}”
+        </p>
 
-    </section>
+        <p class="referencia">
+            {{ historia_dia.referencia }}
+        </p>
+    </div>
 
-    {% endif %}
+    <h3>💛 Reflexão do dia</h3>
 
+    <p>
+        {{ historia_dia.mensagem }}
+    </p>
+
+    <div class="direito-consumidor">
+
+        <h3>⚖️ DIREITO DO CONSUMIDOR</h3>
+
+        <p>
+            {{ historia_dia.direito }}
+        </p>
+
+        <p>
+            <small>
+                Informação educativa. Consulte a legislação aplicável
+                para conhecer seus direitos em cada situação.
+            </small>
+        </p>
+
+    </div>
+
+    <p>
+        <strong>Amanhã: uma nova mensagem espera por você!</strong>
+    </p>
+
+</section>
+
+{% endif %}
     <!-- RESULTADO DA BUSCA -->
     {% if busca %}
 
