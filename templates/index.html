@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,7 +11,14 @@
     <meta name="robots" content="index, follow">
 
     <style>
-        * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            width: 100%;
+            overflow-x: hidden;
+        }
 
         body {
             font-family: Arial, sans-serif;
@@ -18,8 +26,10 @@
             margin: 0;
             padding: 0;
             color: #333;
+            width: 100%;
         }
 
+        /* CABEÇALHO */
         .topo {
             background: linear-gradient(135deg, #ff5722, #ff784e);
             color: white;
@@ -50,23 +60,29 @@
             opacity: 0.95;
         }
 
+        /* CONTEÚDO */
         .container {
+            width: 100%;
             max-width: 1280px;
             margin: auto;
             padding: 20px;
         }
 
+        /* BUSCA */
         .busca {
             display: flex;
             gap: 10px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            width: 100%;
         }
 
         .busca input {
-            width: 100%;
-            padding: 12px;
+            flex: 1;
+            min-width: 0;
+            padding: 13px;
             border: 1px solid #ddd;
-            border-radius: 6px;
+            border-radius: 8px;
+            font-size: 15px;
         }
 
         .busca button {
@@ -74,7 +90,7 @@
             background: #ff5722;
             color: white;
             border: 0;
-            border-radius: 6px;
+            border-radius: 8px;
             font-weight: bold;
             cursor: pointer;
         }
@@ -83,19 +99,15 @@
             background: #e64a19;
         }
 
-        .aviso-afiliado {
-            background: #fff3e0;
-            border-left: 4px solid #ff5722;
-            border-radius: 6px;
-            padding: 12px 15px;
-            margin-bottom: 20px;
-            font-size: 13px;
-            color: #5d4037;
-        }
-
+        /* BOTÕES DAS VITRINES */
         .vitrine-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
             text-align: center;
-            margin: 20px 0 30px;
+            margin: 22px 0 30px;
+            width: 100%;
         }
 
         .vitrine-btn a {
@@ -106,23 +118,50 @@
             text-decoration: none;
             font-weight: bold;
             display: inline-block;
+            width: auto;
+            max-width: 100%;
             font-size: 16px;
+            line-height: 1.4;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
             transition: 0.2s;
+            overflow-wrap: break-word;
         }
 
         .vitrine-btn a:hover {
             background: #e64a19;
-            transform: scale(1.03);
+            transform: translateY(-2px);
         }
 
-        h2 { margin: 35px 0 15px; }
-        h3 { margin: 25px 0 12px; color: #555; }
+        /* AVISO DE AFILIADOS */
+        .aviso-afiliado {
+            background: #fff3e0;
+            border-left: 4px solid #ff5722;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #5d4037;
+        }
 
+        /* TÍTULOS */
+        h2 {
+            margin: 35px 0 15px;
+            font-size: 22px;
+        }
+
+        h3 {
+            margin: 25px 0 12px;
+            color: #555;
+            font-size: 17px;
+        }
+
+        /* PRODUTOS */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
             gap: 16px;
+            width: 100%;
         }
 
         .card {
@@ -132,6 +171,7 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             display: flex;
             flex-direction: column;
+            min-width: 0;
             min-height: 320px;
             transition: 0.2s;
         }
@@ -151,20 +191,24 @@
             font-size: 14px;
             margin: 10px 0;
             font-weight: bold;
-            height: 45px;
+            min-height: 40px;
+            line-height: 1.4;
             overflow: hidden;
         }
 
         .preco {
             color: #198754;
             font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 5px;
         }
 
         .descricao {
             font-size: 12px;
             color: #666;
             margin-top: 8px;
-            height: 60px;
+            line-height: 1.5;
+            min-height: 45px;
             overflow: hidden;
         }
 
@@ -172,7 +216,7 @@
             display: block;
             width: 100%;
             margin-top: auto;
-            padding: 10px;
+            padding: 12px 10px;
             text-align: center;
             background: #ff5722;
             color: white;
@@ -185,17 +229,9 @@
             background: #e64a19;
         }
 
-        footer {
-            margin-top: 45px;
-            padding: 25px;
-            background: #222;
-            color: #ccc;
-            text-align: center;
-            font-size: 13px;
-        }
-        
         /* HISTÓRIA DO DIA */
         .historia-dia {
+            width: 100%;
             max-width: 850px;
             margin: 25px auto;
             padding: 24px;
@@ -232,6 +268,7 @@
             font-size: 17px;
             line-height: 1.7;
             margin: 20px 0;
+            overflow-wrap: break-word;
         }
 
         .historia-rodape {
@@ -240,11 +277,130 @@
             color: #a74718;
             font-weight: bold;
             font-size: 14px;
+            line-height: 1.6;
         }
 
+        /* RODAPÉ */
+        footer {
+            margin-top: 45px;
+            padding: 25px 15px;
+            background: #222;
+            color: #ccc;
+            text-align: center;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        footer a {
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* CELULARES */
         @media (max-width: 600px) {
+
+            .topo {
+                padding: 18px 12px;
+                gap: 10px;
+            }
+
+            .logo {
+                width: 58px;
+                height: 58px;
+            }
+
+            .topo h1 {
+                font-size: 20px;
+            }
+
+            .topo p {
+                font-size: 12px;
+            }
+
+            .container {
+                padding: 14px 10px;
+            }
+
+            .busca {
+                gap: 7px;
+            }
+
+            .busca input {
+                padding: 12px 9px;
+                font-size: 14px;
+            }
+
+            .busca button {
+                padding: 12px 14px;
+                font-size: 13px;
+            }
+
+            .vitrine-btn {
+                gap: 12px;
+                margin: 18px 0 25px;
+            }
+
+            .vitrine-btn a {
+                display: block;
+                width: 100%;
+                max-width: 420px;
+                padding: 14px 10px;
+                font-size: 14px;
+                transform: none;
+            }
+
+            .aviso-afiliado {
+                padding: 12px;
+                font-size: 12px;
+            }
+
+            h2 {
+                font-size: 19px;
+                margin-top: 28px;
+            }
+
+            h3 {
+                font-size: 16px;
+            }
+
+            .grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 10px;
+            }
+
+            .card {
+                padding: 8px;
+                min-height: 290px;
+            }
+
+            .card img {
+                height: 135px;
+            }
+
+            .nome {
+                font-size: 12px;
+                min-height: 48px;
+            }
+
+            .preco {
+                font-size: 14px;
+            }
+
+            .descricao {
+                font-size: 11px;
+                min-height: 40px;
+            }
+
+            .btn {
+                padding: 10px 5px;
+                font-size: 12px;
+            }
+
             .historia-dia {
-                padding: 18px;
+                padding: 18px 13px;
                 margin: 20px 0;
             }
 
@@ -254,257 +410,387 @@
 
             .historia-mensagem {
                 font-size: 15px;
+                line-height: 1.6;
+            }
+
+            .historia-rodape {
+                font-size: 12px;
+            }
+
+            footer {
+                padding: 22px 12px;
+                font-size: 12px;
             }
         }
 
+        /* TELAS MUITO PEQUENAS */
+        @media (max-width: 360px) {
+
+            .topo h1 {
+                font-size: 18px;
+            }
+
+            .container {
+                padding: 12px 8px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card img {
+                height: 180px;
+            }
+
+            .nome {
+                font-size: 14px;
+            }
+
+            .btn {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 
 <body>
 
 <header class="topo">
-    <img src="{{ url_for('static', filename='img/logo.jpg') }}" class="logo" alt="Logo">
+
+    <img
+        src="{{ url_for('static', filename='img/logo.jpg') }}"
+        class="logo"
+        alt="Logo"
+    >
 
     <div>
         <h1>🔥 Loja de Ofertas Afiliadas</h1>
         <p>Ofertas selecionadas — site independente de afiliados</p>
     </div>
+
 </header>
 
 <main class="container">
 
+    <!-- BUSCA DE PRODUTOS -->
     <form class="busca" method="GET" action="{{ url_for('home') }}">
-        <input type="search" name="q" value="{{ busca or '' }}" placeholder="Busque produtos...">
+
+        <input
+            type="search"
+            name="q"
+            value="{{ busca or '' }}"
+            placeholder="Busque produtos..."
+        >
+
         <button type="submit">Buscar</button>
+
     </form>
 
-   <!-- 🔥 BOTÕES DAS VITRINES -->
-<div class="vitrine-btn">
+    <!-- BOTÕES DAS VITRINES -->
+    <div class="vitrine-btn">
 
-    <!-- Shopee -->
-    <a href="https://collshp.com/franciscoasilva233745/category/3811649?share_channel_code=1&view=storefront"
-       target="_blank"
-       rel="sponsored noopener noreferrer">
-        🛍️ VER VITRINE COMPLETA NA SHOPEE
-    </a>
+        <!-- SHOPEE -->
+        <a
+            href="https://collshp.com/franciscoasilva233745/category/3811649?share_channel_code=1&view=storefront"
+            target="_blank"
+            rel="sponsored noopener noreferrer"
+        >
+            🛍️ VER VITRINE COMPLETA NA SHOPEE
+        </a>
 
-    <br><br>
+        <!-- MERCADO LIVRE -->
+        <a
+            href="https://meli.la/2rA1CAM"
+            target="_blank"
+            rel="sponsored noopener noreferrer"
+            style="
+                background:#3483fa;
+                color:#ffffff;
+                padding:15px 22px;
+                border-radius:12px;
+                text-decoration:none;
+                font-weight:bold;
+                display:inline-block;
+                font-size:16px;
+                box-shadow:0 4px 10px rgba(0,0,0,.2);
+            "
+        >
+            🛒 VER VITRINE COMPLETA NO MERCADO LIVRE
+        </a>
 
-    <!-- Mercado Livre -->
-    <a href="https://meli.la/2rA1CAM"
-       target="_blank"
-       rel="sponsored noopener noreferrer"
-       style="
-            background:#3483fa;
-            color:#ffffff;
-            padding:15px 22px;
-            border-radius:12px;
-            text-decoration:none;
-            font-weight:bold;
-            display:inline-block;
-            font-size:16px;
-            box-shadow:0 4px 10px rgba(0,0,0,.2);
-        ">
-        🛒 VER VITRINE COMPLETA NO MERCADO LIVRE
-    </a>
-<br><br>
+        <!-- HOTMART -->
+        <a
+            href="https://go.hotmart.com/R102490444L"
+            target="_blank"
+            rel="sponsored noopener noreferrer"
+            style="
+                background:#8e44ad;
+                color:#ffffff;
+                padding:15px 22px;
+                border-radius:12px;
+                text-decoration:none;
+                font-weight:bold;
+                display:inline-block;
+                font-size:16px;
+                box-shadow:0 4px 10px rgba(0,0,0,.2);
+            "
+        >
+            📘 VER OFERTA NA HOTMART
+        </a>
 
-<!-- HOTMART -->
-<a href="https://go.hotmart.com/R102490444L"
-   target="_blank"
-   rel="sponsored noopener noreferrer"
-   style="
-        background:#8e44ad;
-        color:#ffffff;
-        padding:15px 22px;
-        border-radius:12px;
-        text-decoration:none;
-        font-weight:bold;
-        display:inline-block;
-        font-size:16px;
-        box-shadow:0 4px 10px rgba(0,0,0,.2);
-    ">
-    📘 VER OFERTA NA HOTMART
-</a>
-<br><br>
+        <!-- AMAZON -->
+        <a
+            href="https://www.amazon.com.br/hz/wishlist/ls/1V4OCSN5X8HA9?linkCode=ll2&amp;tag=lojaofertas03-20&amp;linkId=c33460335c1304e33787c046620a7c0f&amp;ref_=as_li_ss_tl"
+            target="_blank"
+            rel="nofollow sponsored noopener noreferrer"
+            style="
+                background:#FF9900;
+                color:#111;
+                padding:15px 22px;
+                border-radius:12px;
+                text-decoration:none;
+                font-weight:bold;
+                display:inline-block;
+                font-size:16px;
+                box-shadow:0 4px 10px rgba(0,0,0,.2);
+            "
+        >
+            🏆 VER MINHA LISTA NA AMAZON
+        </a>
 
-<a href="https://www.amazon.com.br/hz/wishlist/ls/1V4OCSN5X8HA9?linkCode=ll2&amp;tag=lojaofertas03-20&amp;linkId=c33460335c1304e33787c046620a7c0f&amp;ref_=as_li_ss_tl"
-   target="_blank"
-   rel="nofollow sponsored noopener noreferrer"
-   style="
-        background:#FF9900;
-        color:#111;
-        padding:15px 22px;
-        border-radius:12px;
-        text-decoration:none;
-        font-weight:bold;
-        display:inline-block;
-        font-size:16px;
-        box-shadow:0 4px 10px rgba(0,0,0,.2);
-">
-    🏆 VER MINHA LISTA NA AMAZON
-</a>
+        <!-- TEMU -->
+        <a
+            href="https://share.temu.com/O7ymzSphn6A"
+            target="_blank"
+            rel="sponsored noopener noreferrer"
+            style="
+                background:#000;
+                color:#fff;
+                padding:15px 22px;
+                border-radius:12px;
+                text-decoration:none;
+                font-weight:bold;
+                display:inline-block;
+                font-size:16px;
+                box-shadow:0 4px 10px rgba(0,0,0,.2);
+            "
+        >
+            🛍️ VER SELEÇÕES DA TEMU
+        </a>
 
-<br><br>
-
-    <a href="https://share.temu.com/O7ymzSphn6A"
-   target="_blank"
-   rel="sponsored noopener noreferrer"
-   style="
-        background:#000;
-        color:#fff;
-        padding:15px 22px;
-        border-radius:12px;
-        text-decoration:none;
-        font-weight:bold;
-        display:inline-block;
-        font-size:16px;
-        box-shadow:0 4px 10px rgba(0,0,0,.2);
-    ">
-    🛍️ VER SELEÇÕES DA TEMU
-</a>
-    
-</div>
-
-<!-- ACESSO AOS E-BOOKS DIGITAIS -->
-<div class="vitrine-btn">
-
-    <a href="https://sites.google.com/view/frankprimogruposolucoesdig/in%C3%ADcio"
-       target="_blank"
-       rel="noopener noreferrer"
-       style="
-            background:#17243b;
-            color:#ffffff;
-            padding:15px 22px;
-            border-radius:12px;
-            text-decoration:none;
-            font-weight:bold;
-            display:inline-block;
-            font-size:16px;
-            box-shadow:0 4px 10px rgba(0,0,0,.2);
-       ">
-        📚 FP DIGITAL STORE — E-BOOKS DIGITAIS
-    </a>
-
-<div class="aviso-afiliado">   
-    <strong>Transparência:</strong>
-    Este site participa de programas de afiliados da Shopee, Mercado Livre, Hotmart, Amazon e Temu.
-    Podemos receber comissão quando você realiza uma compra através dos nossos links, sem custo adicional para você.
-    <br>
-    <small>
-        Não somos representantes oficiais das plataformas mencionadas. 
-        Produtos, preços, promoções e disponibilidade são definidos pelas respectivas lojas.
-    </small>
-</div>
-    {% if historia_dia is defined %}
-<section class="historia-dia">
-
-    <span class="historia-etiqueta">
-        ✨ MENSAGEM DO DIA
-    </span>
-
-    <h2>🌅 UM NOVO DIA, UMA NOVA HISTÓRIA</h2>
-
-    <div class="historia-data">
-        📅 {{ historia_dia.dia }}, {{ historia_dia.data }}
     </div>
 
-    <div class="historia-mensagem">
-        {{ historia_dia.mensagem }}
+    <!-- ACESSO AOS E-BOOKS DIGITAIS -->
+    <div class="vitrine-btn">
+
+        <a
+            href="https://sites.google.com/view/frankprimogruposolucoesdig/in%C3%ADcio"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="
+                background:#17243b;
+                color:#ffffff;
+                padding:15px 22px;
+                border-radius:12px;
+                text-decoration:none;
+                font-weight:bold;
+                display:inline-block;
+                font-size:16px;
+                box-shadow:0 4px 10px rgba(0,0,0,.2);
+            "
+        >
+            📚 FP DIGITAL STORE — E-BOOKS DIGITAIS
+        </a>
+
     </div>
 
-    <div class="historia-rodape">
-        🌙 Amanhã: uma nova história te espera.
+    <!-- AVISO DE AFILIADOS -->
+    <div class="aviso-afiliado">
+
+        <strong>Transparência:</strong>
+
+        Este site participa de programas de afiliados da Shopee,
+        Mercado Livre, Hotmart, Amazon e Temu.
+
+        Podemos receber comissão quando você realiza uma compra
+        através dos nossos links, sem custo adicional para você.
+
         <br>
-        ✨ A mensagem de amanhã só será revelada quando o dia chegar.
+
+        <small>
+            Não somos representantes oficiais das plataformas mencionadas.
+            Produtos, preços, promoções e disponibilidade são definidos
+            pelas respectivas lojas.
+        </small>
+
     </div>
 
-</section>
-{% endif %}
-    {% if busca %}
-        <h2>🔎 Resultado: {{ busca }}</h2>
+    <!-- HISTÓRIA DO DIA -->
+    {% if historia_dia is defined and historia_dia %}
+
+    <section class="historia-dia">
+
+        <span class="historia-etiqueta">
+            ✨ MENSAGEM DO DIA
+        </span>
+
+        <h2>🌅 UM NOVO DIA, UMA NOVA HISTÓRIA</h2>
+
+        <div class="historia-data">
+            📅 {{ historia_dia.dia }}, {{ historia_dia.data }}
+        </div>
+
+        <div class="historia-mensagem">
+            {{ historia_dia.mensagem }}
+        </div>
+
+        <div class="historia-rodape">
+            🌙 Amanhã: uma nova história te espera.
+            <br>
+            ✨ A mensagem de amanhã só será revelada quando o dia chegar.
+        </div>
+
+    </section>
+
     {% endif %}
 
+    <!-- RESULTADO DA BUSCA -->
+    {% if busca %}
+
+        <h2>🔎 Resultado: {{ busca }}</h2>
+
+    {% endif %}
+
+    <!-- PRODUTOS RECOMENDADOS -->
     {% if recomendados %}
+
         <h2>🏆 Produtos Recomendados</h2>
 
         <div class="grid">
+
             {% for p in recomendados %}
+
             <div class="card">
 
                 {% if p.imagem %}
-                <img src="{{ p.imagem }}" alt="{{ p.nome }}">
+
+                <img
+                    src="{{ p.imagem }}"
+                    alt="{{ p.nome }}"
+                    loading="lazy"
+                >
+
                 {% endif %}
 
-                <div class="nome">{{ p.nome|truncate(75, True, '...') }}</div>
-                <div class="preco">R$ {{ "%.2f"|format(p.preco or 0) }}</div>
+                <div class="nome">
+                    {{ p.nome|truncate(75, True, '...') }}
+                </div>
+
+                <div class="preco">
+                    R$ {{ "%.2f"|format(p.preco or 0) }}
+                </div>
 
                 {% if p.descricao %}
+
                 <div class="descricao">
                     {{ (p.descricao or '')[:160] }}
                 </div>
+
                 {% endif %}
 
-               <a class="btn"
-   href="{{ url_for('go', produto_id=p.id) }}"
-   target="_blank"
-   rel="noopener noreferrer sponsored">
-    🛒 Ver Oferta
-</a>
+                <a
+                    class="btn"
+                    href="{{ url_for('go', produto_id=p.id) }}"
+                    target="_blank"
+                    rel="noopener noreferrer sponsored"
+                >
+                    🛒 Ver Oferta
+                </a>
+
             </div>
+
             {% endfor %}
+
         </div>
+
     {% endif %}
 
+    <!-- PRODUTOS POR CATEGORIA -->
     {% for categoria, subcats in grupos.items() %}
+
         <h2>📦 {{ categoria }}</h2>
 
         {% for subcategoria, produtos in subcats.items() %}
+
             <h3>{{ subcategoria }}</h3>
 
             <div class="grid">
+
                 {% for p in produtos %}
+
                 <div class="card">
 
                     {% if p.imagem %}
-                    <img src="{{ p.imagem }}" alt="{{ p.nome }}">
+
+                    <img
+                        src="{{ p.imagem }}"
+                        alt="{{ p.nome }}"
+                        loading="lazy"
+                    >
+
                     {% endif %}
 
-                    <div class="nome">{{ p.nome|truncate(75, True, '...') }}</div>
-                    <div class="preco">R$ {{ "%.2f"|format(p.preco or 0) }}</div>
+                    <div class="nome">
+                        {{ p.nome|truncate(75, True, '...') }}
+                    </div>
+
+                    <div class="preco">
+                        R$ {{ "%.2f"|format(p.preco or 0) }}
+                    </div>
 
                     {% if p.descricao %}
+
                     <div class="descricao">
                         {{ (p.descricao or '')[:160] }}
                     </div>
+
                     {% endif %}
 
-                    <a class="btn"
-                       href="{{ url_for('go', produto_id=p.id) }}"
-                       target="_blank"
-                       rel="noopener noreferrer sponsored">
+                    <a
+                        class="btn"
+                        href="{{ url_for('go', produto_id=p.id) }}"
+                        target="_blank"
+                        rel="noopener noreferrer sponsored"
+                    >
                         🛒 Ver Oferta
                     </a>
 
                 </div>
+
                 {% endfor %}
+
             </div>
+
         {% endfor %}
+
     {% endfor %}
 
 </main>
 
+<!-- RODAPÉ -->
 <footer>
+
     <p><strong>Política de Afiliados</strong></p>
 
     <p>
-        A Loja de Ofertas Afiliadas participa de programas de afiliados da Shopee,
-        Mercado Livre, Amazon, Hotmart e Temu.
+        A Loja de Ofertas Afiliadas participa de programas de afiliados
+        da Shopee, Mercado Livre, Amazon, Hotmart e Temu.
     </p>
 
     <p>
-        Alguns links deste site são links de afiliados. Caso você realize uma compra
-        ou outra ação elegível, podemos receber uma comissão sem custo adicional para você.
+        Alguns links deste site são links de afiliados. Caso você realize
+        uma compra ou outra ação elegível, podemos receber uma comissão
+        sem custo adicional para você.
     </p>
 
     <p>
@@ -513,8 +799,8 @@
     </p>
 
     <p>
-        Não somos representantes oficiais das plataformas citadas. Todas as marcas
-        pertencem aos seus respectivos proprietários.
+        Não somos representantes oficiais das plataformas citadas.
+        Todas as marcas pertencem aos seus respectivos proprietários.
     </p>
 
     <p>
@@ -532,6 +818,8 @@
     <p style="font-size:12px;color:#aaa;">
         © 2026 Loja de Ofertas Afiliadas
     </p>
+
 </footer>
+
 </body>
 </html>
